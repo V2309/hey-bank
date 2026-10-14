@@ -1,0 +1,6 @@
+{
+  "name": "Heybank - Digital Banking",
+  "description": "A premium modern digital banking website homepage featuring clean fintech aesthetics, editorial typography, realistic card visuals, and seamless mobile banking experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

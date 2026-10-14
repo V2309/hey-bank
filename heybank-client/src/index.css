@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #FAF8F5;
+  --color-canvas-subtle: #F6F4EE;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F4F2EB;
+  --color-ink: #111215;
+  --color-ink-hover: #23252A;
+  --color-ink-muted: #52525B;
+  --color-ink-subtle: #71717A;
+  --color-accent: #F43F5E;
+  --color-accent-hover: #E11D48;
+  --color-accent-subtle: #FEE2E2;
+  --color-glow-peach: #FED7AA;
+  --color-glow-rose: #FBCFE8;
+  --color-glow-yellow: #FEF08A;
+  --color-glow-indigo: #DDD6FE;
+
+  /* Dashboard Custom Theme Tokens */
+  --color-budget-pink: #C11574;
+  --color-budget-pink-subtle: #FDF2FA;
+  --color-budget-green: #027A48;
+  --color-budget-green-subtle: #ECFDF3;
+  --color-budget-blue: #175CD3;
+  --color-budget-blue-subtle: #EFF8FF;
+  --color-brand-blue: #175CD3;
+  --color-brand-green: #027A48;
+  --color-brand-pink: #C11574;
+  --color-slate-surface: #F8FAFC;
+  --color-slate-card: #1E293B;
+  --color-dashboard-bg: #FDFDFD;
+}
+
+@layer base {
+  :root {
+    --canvas: #FAF8F5;
+    --canvas-subtle: #F6F4EE;
+    --surface: #FFFFFF;
+    --ink: #111215;
+    --ink-hover: #23252A;
+    --ink-muted: #52525B;
+    --ink-subtle: #71717A;
+    --accent: #F43F5E;
+    --accent-hover: #E11D48;
+    --accent-subtle: #FEE2E2;
+
+    /* Dashboard Custom Variables */
+    --budget-pink: #C11574;
+    --budget-green: #027A48;
+    --budget-blue: #175CD3;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--canvas);
+    color: var(--ink);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-reverse {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(4deg);
+  }
+
+  50% {
+    transform: translateY(6px) rotate(6deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+/* Glass & Pastel Accents */
+.bg-warm-canvas {
+  background-color: var(--canvas);
+}
+
+.bg-soft-card {
+  background-color: var(--surface);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E4E0D9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CBC5BA;
+}
+
+/* Eloqwnt Style Marquee Infinite Animation */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Eloqwnt Style Hover Underline Animation */
+.hover-line-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hover-line-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.hover-line-link:hover::after {
+  width: 100%;
+}
+
+/* Eloqwnt Style Sliding Button Background */
+.elo-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elo-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #23252A;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.elo-btn:hover::before {
+  transform: translateY(0);
+}
+
+.elo-btn > * {
+  position: relative;
+  z-index: 1;
+}
